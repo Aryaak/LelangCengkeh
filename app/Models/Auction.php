@@ -20,4 +20,9 @@ class Auction extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function winner()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
