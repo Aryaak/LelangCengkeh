@@ -20,7 +20,7 @@ class AuctionController extends Controller
     {
         $data = Auction::where('is_ended', false)->get();
         foreach ($data as $item) {
-            if (Carbon::now() > $item->date) {
+            if (Carbon::now() > $item->end_at) {
                 $bid = AuctionBid::where('auction_id', $item->id)->orderBy('bid', 'DESC')->first();
                 if ($bid) {
                     Auction::where('id', $item->id)->update([
