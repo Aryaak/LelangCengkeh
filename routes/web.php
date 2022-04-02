@@ -22,6 +22,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('auction/bid', [AuctionController::class, 'bid'])->name('auction.bid');
     Route::post('auction/join', [AuctionController::class, 'join'])->name('auction.join');
     Route::delete('auction/leave', [AuctionController::class, 'leave'])->name('auction.leave');
+    Route::delete('auction/bid/destroy/{id}', [AuctionController::class, 'bidDestroy'])->name('auction.bid.destroy');
+    Route::delete('auction/member/destroy/{auctionId}/{userId}', [AuctionController::class, 'memberDestroy'])->name('auction.member.destroy');
     Route::get('search', [AuctionController::class, 'search'])->name('search');
     Route::resource('auction', AuctionController::class);
 });

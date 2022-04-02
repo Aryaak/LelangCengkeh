@@ -134,4 +134,23 @@ class AuctionController extends Controller
 
         return view('pages.home.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
+    public function bidDestroy($id)
+    {
+        AuctionBid::where('id', $id)->delete();
+        return redirect()->back()->with(['success' => 'Berhasil menghapus penawaran lelang']);
+    }
+
+    public function memberDestroy($auctionId, $userId)
+    {
+        DB::table('auction_user')
+            ->where('auction_id', $auctionId)
+            ->where('user_id', $userId)
+            ->delete();
+        AuctionBid::where('auction_id', $auctionId)
+            ->where('user_id', $userId)
+            ->delete();
+        return redirect()->back();
+        return redirect()->back()->with(['success' => 'Berhasil menghapus penawaran lelang']);
+    }
 }

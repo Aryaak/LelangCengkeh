@@ -14,11 +14,11 @@
 <!-- /.content-header -->
 
 <!-- Main content -->
-<section class="content">
+<section class="content overflow-auto">
     <div class="container-fluid">
         <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#createModal">Buat lelang
             baru</button>
-        <table class="table overflow-scroll">
+        <table class="table">
             <thead>
                 <tr>
                     <th scope="col">No</th>
@@ -26,7 +26,7 @@
                     <th scope="col">Dimulai pada</th>
                     <th scope="col">Berakhir pada</th>
                     <th scope="col">Harga awal</th>
-                    <th scope="col">Aksi</th>
+                    <th scope="col" colspan="3">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,9 +39,13 @@
                     <td>Rp. {{number_format($item->start_price, 0, ',', '.')}}</td>
                     <td>
                         <button data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-warning">Edit</button>
-                        <button data-bs-toggle="modal" data-bs-target="#destroyModal"
-                            class="btn btn-danger">Hapus</button>
+                    </td>
+                    <td>
                         <a href="{{route('admin.auction.show', $item->id)}}" class="btn btn-primary">Lihat</a>
+                    </td>
+                    <td>
+                        <button data-bs-toggle="modal" data-bs-target="#destroyModal"
+                        class="btn btn-danger">Hapus</button>
                     </td>
 
                     <!-- Edit Modal -->
