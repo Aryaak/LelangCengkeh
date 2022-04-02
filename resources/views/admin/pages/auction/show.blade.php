@@ -23,13 +23,14 @@
         <p>{{$data->start_at}}</p>
         <p>Berakhir pada: </p>
         <p>{{$data->end_at}}</p>
-        <h3>Penawar</h3>
-        <table class="table w-50">
+        <h3>Penawaran</h3>
+        <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Penawar</th>
-                    <th scope="col">Bergabung pada</th>
+                    <th scope="col">Harga</th>
+                    <th scope="col">Ditawarkan pada</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
@@ -56,14 +57,13 @@
 
             </tbody>
         </table>
-        <h3>Penawaran</h3>
-        <table class="table w-50">
+        <h3>Penawar</h3>
+        <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">No</th>
                     <th scope="col">Penawar</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Ditawarkan pada</th>
+                    <th scope="col">Bergabung pada</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
