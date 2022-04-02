@@ -15,12 +15,15 @@ Route::group(['middleware' => ['auth']], function () {
         });
     });
 
+    Route::group(['middleware' => ['user']], function () {
+        Route::get('/', [HomeController::class, 'index'])->name('home');
+    });
+
     Route::post('auction/bid', [AuctionController::class, 'bid'])->name('auction.bid');
     Route::post('auction/join', [AuctionController::class, 'join'])->name('auction.join');
     Route::delete('auction/leave', [AuctionController::class, 'leave'])->name('auction.leave');
+    Route::get('search', [AuctionController::class, 'search'])->name('search');
     Route::resource('auction', AuctionController::class);
-    Route::get('/search', [AuctionController::class, 'search'])->name('search');
-    Route::get('/', [HomeController::class, 'index'])->name('home');
 });
 
 Auth::routes();

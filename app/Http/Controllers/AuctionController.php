@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class AuctionController extends Controller
 {
@@ -94,7 +95,9 @@ class AuctionController extends Controller
         ]);
 
         $data['user_id'] = Auth::user()->id;
-        $data['photo'] = $request->file('photo')->store('auction');
+        // $data['photo'] = $request->file('photo')->store('auction');
+        $data['photo'] = Storage::disk('public_uploads')->put('img/auction', $request->file('photo'));
+
         Auction::create($data);
 
         return redirect()->back()->with(['success' => 'Lelang baru berhasil ditambahkan']);
