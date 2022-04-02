@@ -123,4 +123,12 @@ class AuctionController extends Controller
         Auction::where('id', $id)->delete();
         return redirect()->back()->with(['success' => 'Berhasil menghapus lelang']);
     }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->search;
+        $data = Auction::where('title', 'like', "%" . $keyword . "%")->paginate(5);
+
+        return view('pages.home.index', compact('data'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 }
