@@ -8,7 +8,7 @@
         @forelse ($data as $item)
             <div class="col-md-3">
             <div class="card" style="width: 18rem;">
-                <img height="200" src="{{asset('storage/' . $item->photo)}}" class="card-img-top">
+                <img height="200" src="{{asset($item->photo)}}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">{{$item->title}}</h5>
                     <p class="card-text">{{\Illuminate\Support\Str::limit($item->description, $limit = 50, $end = '...')}}</p>
