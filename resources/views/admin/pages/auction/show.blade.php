@@ -29,7 +29,7 @@
             <table class="table w-50">
                 <thead>
                     <tr>
-                        <th scope="col">Penawar</th>
+                        <th scope="col">Nama</th>
                         <th scope="col">No HP</th>
                         <th scope="col">Alamat</th>
                         <th scope="col">Harga</th>
@@ -118,7 +118,7 @@
                 <thead>
                     <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Penawar</th>
+                        <th scope="col">Nama</th>
                         <th scope="col">Bergabung pada</th>
                         <th scope="col">Aksi</th>
                     </tr>
