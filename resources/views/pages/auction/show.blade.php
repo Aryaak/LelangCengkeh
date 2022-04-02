@@ -107,7 +107,7 @@
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             <input type="hidden" name="auction_id" value="{{ $data->id }}">
             <div class="form-group">
-                <label for="bid" class="mb-2">Harga penawaran</label>
+                <label for="bid" class="mb-2 fw-bold">Harga penawaran</label>
                 <input min="{{ $data->start_price }}" class="form-control mb-2" type="number" name="bid"
                     placeholder="Masukan harga penawaran anda...">
             </div>
