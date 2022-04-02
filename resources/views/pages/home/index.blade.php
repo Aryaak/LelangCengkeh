@@ -17,7 +17,7 @@
 
         <div class="row gap-3 justify-content-center">
             @forelse ($data as $item)
-                <div class="col-md-3 d-flex justify-content-center">
+                <div class="col-md-3 3 d-flex justify-content-center mb-3">
                     <div class="card shadow p-3 bg-body rounded" style="width: 20rem">
                         <img height="200" src="{{ asset($item->photo) }}" class="card-img-top">
                         <div class="card-body">
