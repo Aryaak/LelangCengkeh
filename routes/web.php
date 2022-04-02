@@ -19,6 +19,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('auction/join', [AuctionController::class, 'join'])->name('auction.join');
     Route::delete('auction/leave', [AuctionController::class, 'leave'])->name('auction.leave');
     Route::resource('auction', AuctionController::class);
+    Route::get('/search', [AuctionController::class, 'search'])->name('search');
     Route::get('/', [HomeController::class, 'index'])->name('home');
 });
 
