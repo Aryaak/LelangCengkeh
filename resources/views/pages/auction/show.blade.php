@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="container-fluid">
-        <img height="100%" width="100%" src="{{ asset($data->photo) }}" class="mb-3">
+        <img height="100%" width="100%" src="{{ asset($data->photo) }}" class="mb-3 shadow bg-body rounded">
         <hr>
         <h3 class="mb-2 fw-bold">{{ $data->title }}</h3>
         <p class="mb-3">{{ $data->description }}</p>
@@ -72,7 +72,7 @@
         <section class="row">
             @if ($data->winner)
             <div class="col-md-4">
-                <div class="card bg-success text-white">
+                <div class="card bg-success text-white shadow rounded">
                     <div class="card-body">
                         <h5 class="card-title fw-bolder">{{ $data->winner->name }}</h5>
                         <p class="card-text">Dengan harga Rp.
@@ -89,9 +89,9 @@
         <section class="row gap-2">
             @forelse ($data->bids as $item)
             <div class="col-md-4">
-                <div class="card">
+                <div class="card shadow bg-body rounded">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $item->user->name }}</h5>
+                        <h5 class="card-title fw-bold">{{ $item->user->name }}</h5>
                         <p class="card-text">Rp. {{ number_format($item->bid, 0, ',', '.') }}</p>
                     </div>
                 </div>
@@ -124,9 +124,9 @@
         <section class="row gap-2">
             @forelse ($data->members as $item)
             <div class="col-md-4">
-                <div class="card">
+                <div class="card shadow bg-body rounded">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $item->name }}</h5>
+                        <h5 class="card-title fw-bold">{{ $item->name }}</h5>
                         <p class="card-text">Bergabung pada {{ $item->created_at->diffForHumans() }}</p>
                     </div>
                 </div>
