@@ -13,7 +13,7 @@
             <tr class="border-bottom">
                 <td>Harga awal</td>
                 {{-- <td>:</td> --}}
-                <td class="text-secondary">Rp. {{ number_format($data->start_price, 0, ',', ',') }}</td>
+                <td class="text-secondary">Rp. {{ number_format($data->start_price, 0, ',', '.') }}</td>
             </tr>
             <tr class="border-bottom">
                 <td>Dimulai Pada</td>

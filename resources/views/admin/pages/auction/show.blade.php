@@ -23,6 +23,37 @@
         <p>{{ $data->start_at }}</p>
         <p>Berakhir pada: </p>
         <p>{{ $data->end_at }}</p>
+        @if ($data->is_ended)
+        <h3>Pemenang</h3>
+        <div class="overflow-auto">
+            <table class="table w-50">
+                <thead>
+                    <tr>
+                        <th scope="col">Penawar</th>
+                        <th scope="col">No HP</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">Harga</th>
+                        <th scope="col">Ditawarkan pada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if($data->winner)
+                    <tr>
+                        <td>{{ $data->winner->name }}</td>
+                        <td>{{ $data->winner->phone }}</td>
+                        <td>{{ $data->winner->address }}</td>
+                        <td>Rp. {{ number_format($data->selling_price, 0, ',', '.') }}</td>
+                        <td>{{ $data->created_at->diffForHumans() }}</td>
+                    </tr>
+                    @else
+                    <tr>
+                        <td colspan="5" class="text-center">Tidak ada pemenang</td>
+                    </tr>
+                    @endif
+                </tbody>
+            </table>
+        </div>
+        @endif
         <h3>Penawaran</h3>
         <div class="overflow-auto">
             <table class="table w-50">
@@ -47,9 +78,9 @@
                                 class="btn btn-danger">Hapus</button>
                         </td>
                     </tr>
-                      <!-- Destroy Bid Modal -->
-                    <div class="modal fade" id="destroyBidModal" tabindex="-1"
-                        aria-labelledby="destroyBidModalLabel" aria-hidden="true">
+                    <!-- Destroy Bid Modal -->
+                    <div class="modal fade" id="destroyBidModal" tabindex="-1" aria-labelledby="destroyBidModalLabel"
+                        aria-hidden="true">
                         <form action="{{route('auction.bid.destroy', $item->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -142,22 +173,4 @@
     </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-<div class="overflow-auto">
-
-    <script>
-        function changePreview() {
-            const inputFile = document.getElementById('photo');
-            const imgPreview = document.getElementById('img_preview');
-            const url = URL.createObjectURL(inputFile.files[0]);
-            imgPreview.setAttribute('src', url)
-        }
-
-        function changePreviewEdit() {
-            const inputFile = document.getElementById('photo_edit');
-            const imgPreview = document.getElementById('img_preview_edit');
-            const url = URL.createObjectURL(inputFile.files[0]);
-            imgPreview.setAttribute('src', url)
-        }
-
-    </script>
-    @endsection
+@endsection

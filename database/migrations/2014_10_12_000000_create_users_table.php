@@ -17,6 +17,8 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('photo')->nullable();
             $table->string('name');
+            $table->string('phone');
+            $table->longText('address');
             $table->string('email')->unique();
             $table->boolean('is_admin')->default(false);
             $table->timestamp('email_verified_at')->nullable();
