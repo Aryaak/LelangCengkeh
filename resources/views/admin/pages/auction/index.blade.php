@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <img src="{{asset('storage/' . $item->photo)}}" height="200"
+                                            <img src="{{asset($item->photo)}}" height="200"
                                                 id="img_preview_edit" class="mb-3"> <br>
                                             <label for="photo_edit">Foto</label>
                                             @error('photo')

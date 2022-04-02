@@ -16,7 +16,7 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
-        <img height="300" src="{{asset('storage/' . $data->photo)}}" class="mb-3">
+        <img height="300" src="{{asset($data->photo)}}" class="mb-3">
         <h3 class="mb-2">{{$data->title}}</h3>
         <p class="mb-3">{{$data->description}}</p>
         <p>Dimulai pada: </p>
