@@ -18,10 +18,10 @@
     <div class="container-fluid">
         <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#createModal">Buat lelang
             baru</button>
-        <table class="table">
+        <table class="table overflow-scroll">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">No</th>
                     <th scope="col">Judul</th>
                     <th scope="col">Dimulai pada</th>
                     <th scope="col">Berakhir pada</th>
