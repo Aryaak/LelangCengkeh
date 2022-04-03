@@ -90,7 +90,7 @@
                 <div>
                     <div class="mb-3">
                         <input type="checkbox" oninput="validasi()" id="validasi" value="tenis_meja">
-                        <label for="">Setuju dan Lanjutkan</label>
+                        <label for="validasi">Setuju dan Lanjutkan</label>
                     </div>
                     <button onclick="next()" name="setuju" class="btn btn-success w-100 d-none">Setuju dan lanjutkan</button>
                     <button disabled name="setuju-disabled" class="btn btn-secondary w-100" disabled>Setuju dan lanjutkan</button>
