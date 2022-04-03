@@ -102,4 +102,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    if (window.localStorage.getItem('visited')) {
+        window.localStorage.removeItem('visited');
+    }
+</script>
 @endsection
