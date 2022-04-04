@@ -47,9 +47,4 @@
     </section>
     <!-- /.content -->
 
-    <script>
-        if(!window.localStorage.getItem('visited')){
-            window.location = "/terms-and-conditions";
-        }
-    </script>
 @endsection

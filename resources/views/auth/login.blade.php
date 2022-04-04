@@ -1,6 +1,14 @@
 @extends('layouts.auth')
 
 @section('content')
+
+@php
+if (isset($_COOKIE['visited'])) {
+    setcookie('visited', null, -1, '/');
+    unset($_COOKIE['visited']);
+} 
+@endphp
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -76,9 +84,4 @@
     </div>
 </div>
 
-<script>
-    if (window.localStorage.getItem('visited')) {
-        window.localStorage.removeItem('visited');
-    }
-</script>
 @endsection
