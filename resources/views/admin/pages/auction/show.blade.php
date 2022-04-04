@@ -20,9 +20,9 @@
         <h3 class="mb-2">{{ $data->title }}</h3>
         <p class="mb-3">{{ $data->description }}</p>
         <p>Dimulai pada: </p>
-        <p>{{ $data->start_at }}</p>
+        <p>{{  date('Y-m-d h:i', strtotime($data->start_at))}}</p>
         <p>Berakhir pada: </p>
-        <p>{{ $data->end_at }}</p>
+        <p>{{ date('Y-m-d h:i', strtotime($data->end_at)) }}</p>
         @if ($data->is_ended)
         <h3>Pemenang</h3>
         <div class="overflow-auto">

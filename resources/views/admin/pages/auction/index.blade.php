@@ -34,22 +34,22 @@
                 <tr>
                     <th scope="row">{{$loop->iteration}}</th>
                     <td>{{$item->title}}</td>
-                    <td>{{$item->start_at}}</td>
-                    <td>{{$item->end_at}}</td>
+                    <td>{{ date('Y-m-d h:i', strtotime($data->start_at))}}</td>
+                    <td>{{ date('Y-m-d h:i', strtotime($data->end_at))}}</td>
                     <td>Rp. {{number_format($item->start_price, 0, ',', '.')}}</td>
                     <td>
-                        <button data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-warning">Edit</button>
+                        <button data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}" class="btn btn-warning">Edit</button>
                     </td>
                     <td>
                         <a href="{{route('admin.auction.show', $item->id)}}" class="btn btn-primary">Lihat</a>
                     </td>
                     <td>
-                        <button data-bs-toggle="modal" data-bs-target="#destroyModal"
+                        <button data-bs-toggle="modal" data-bs-target="#destroyModal{{$item->id}}"
                         class="btn btn-danger">Hapus</button>
                     </td>
 
                     <!-- Edit Modal -->
-                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
+                    <div class="modal fade" id="editModal{{$item->id}}" tabindex="-1" aria-labelledby="editModalLabel"
                         aria-hidden="true">
                         <form action="{{route('auction.update', $item->id)}}" method="POST"
                             enctype="multipart/form-data">
@@ -127,7 +127,7 @@
                     </div>
 
                     <!-- Destroy Modal -->
-                    <div class="modal fade" id="destroyModal" tabindex="-1" aria-labelledby="destroyModalLabel"
+                    <div class="modal fade" id="destroyModal{{$item->id}}" tabindex="-1" aria-labelledby="destroyModalLabel"
                         aria-hidden="true">
                         <form action="{{route('auction.destroy', $item->id)}}" method="POST">
                             @csrf

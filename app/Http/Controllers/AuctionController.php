@@ -21,7 +21,7 @@ class AuctionController extends Controller
     {
         $data = Auction::where('is_ended', false)->get();
         foreach ($data as $item) {
-            if (Carbon::now() > $item->end_at) {
+            if (date('Y-m-d\Th:i', strtotime('now')) > $item->end_at) {
                 $bid = AuctionBid::where('auction_id', $item->id)->orderBy('bid', 'DESC')->first();
                 if ($bid) {
                     Auction::where('id', $item->id)->update([
@@ -47,6 +47,8 @@ class AuctionController extends Controller
             ->where('auction_id', $data->id)
             ->where('user_id', Auth::user()->id)
             ->first();
+        $data['is_bid'] = AuctionBid::where('user_id', Auth::user()->id)
+            ->where('auction_id', $data->id)->first() ? true : false;
         return view('pages.auction.show', compact('data'));
     }
 
@@ -84,7 +86,7 @@ class AuctionController extends Controller
 
     public function store(Request $request)
     {
-
+        dd(request()->all());
         $data = $this->validate($request, [
             'photo' => 'required',
             'title' => 'required',

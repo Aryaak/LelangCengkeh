@@ -21,8 +21,8 @@ class CreateAuctionsTable extends Migration
             $table->string('title');
             $table->longText('description');
             $table->boolean('is_ended')->default(false);
-            $table->timestampTz('start_at');
-            $table->timestampTz('end_at');
+            $table->string('start_at');
+            $table->string('end_at');
             $table->bigInteger('start_price');
             $table->bigInteger('selling_price')->default(0);
             $table->timestamps();
