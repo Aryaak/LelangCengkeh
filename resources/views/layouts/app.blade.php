@@ -37,7 +37,7 @@
 
     <script>
         setInterval(() => {
-            window.location.href = '/'
+            window.location.reload()
             console.log('reload')
         }, 3000);
     </script>
