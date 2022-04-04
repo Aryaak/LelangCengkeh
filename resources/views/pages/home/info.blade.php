@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -42,8 +41,7 @@
                 <h5 class="fw-bold">Informasi</h5>
                 <ol type="i">
                     <li>Lelang Cengkeh adalah suatu perseroan terbatas yang menjalankan kegiatan usaha jasa balai lelang
-                        dengan merek aplasi mobile Lelang Cengkeh yakni suatu aplikasi yang menawarkan jasa lelang .
-                    </li>
+                        dengan merek aplasi mobile Lelang Cengkeh yakni suatu aplikasi yang menawarkan jasa lelang .</li>
                     <li>Kami telah mendapat izin dari Kementrian Keuangan Republik Indonesia, Direktorat Jendral
                         Kekayaan Negara dengan Nomor 23/KM.6/Juni 2007.</li>
                     <li>Petunjuk pelaksanaan lelang diatur secara keseluruhan berdasarkan Peraturan Menteri Keuangan
@@ -54,8 +52,7 @@
                     <li>Syarat & ketentuan adalah perjanjian antara Pengguna dan Developer yang berisikan seperangkat
                         peraturan yang mengatur hak, kewajiban, tanggung jawab pengguna dan Developer, serta tata cara
                         penggunaan sistem layanan Lelang Cengkeh.</li>
-                    <li>Pengguna adalah pihak yang menggunakan layanan Lelang Cengkeh, termasuk namun tidak terbatas
-                        pada
+                    <li>Pengguna adalah pihak yang menggunakan layanan Lelang Cengkeh, termasuk namun tidak terbatas pada
                         pembeli, penjual ataupun pihak lain yang sekedar berkunjung ke lelang Lelang Cengkeh.</li>
                     <li>Peserta lelang adalah pengguna yang telah terdaftar dan membayarkan uang deposit serta mengikuti
                         dan melakukan penawaran terhadap objek lelang pada lelang IBID baik secara on site, online,
@@ -82,8 +79,7 @@
                         </li>
                         <li>Peserta lelang bertanggung jawab secara pribadi untuk menjaga kerahasiaan akun dan password
                             untuk semua aktivitas yang terjadi dalam akun peserta lelang.</li>
-                        <li>Lelang Cengkeh tidak akan meminta username, password maupun kode SMS verifikasi atau kode
-                            OTP
+                        <li>Lelang Cengkeh tidak akan meminta username, password maupun kode SMS verifikasi atau kode OTP
                             milik akun Peserta lelang untuk alasan apapun, oleh karena itu Lelang Cengkeh menghimbau
                             Peserta lelang agar tidak memberikan data tersebut maupun data penting lainnya kepada pihak
                             yang mengatasnamakan Lelang Cengkeh atau pihak lain yang tidak dapat dijamin keamanannya.
@@ -96,13 +92,8 @@
                         <input type="checkbox" oninput="validasi()" id="validasi" value="tenis_meja">
                         <label for="validasi">Setuju dan Lanjutkan</label>
                     </div>
-                    <form action="{{route('user.visited')}}" method="POST">
-                        @csrf
-                        <input type="hidden" name="email" value="{{Auth::user()->email}}">
-                        <button type="submit" name="setuju" class="btn btn-success w-100 d-none">Setuju dan lanjutkan</button>
-                    </form>
-                    <button disabled name="setuju-disabled" class="btn btn-secondary w-100" disabled>Setuju dan
-                        lanjutkan</button>
+                    <button onclick="@php  setcookie("visited",true,time() + (10 * 365 * 24 * 60 * 60)); @endphp window.location = '/'"  name="setuju" class="btn btn-success w-100 d-none">Setuju dan lanjutkan</button>
+                    <button disabled name="setuju-disabled" class="btn btn-secondary w-100" disabled>Setuju dan lanjutkan</button>
                 </div>
             </div>
         </main>
@@ -111,7 +102,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script>
-        $("input[type=checkbox]").on("change", function (evt) {
+
+        $("input[type=checkbox]").on("change", function(evt) {
             var validasi = $('input[id=validasi]:checked');
             if (validasi.length == 0) {
                 $("button[name=setuju-disabled]").removeClass('d-none');
@@ -122,6 +114,7 @@
             }
         });
 
+        
     </script>
 </body>
 
