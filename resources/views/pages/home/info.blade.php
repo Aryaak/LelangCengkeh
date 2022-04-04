@@ -92,7 +92,7 @@
                         <input type="checkbox" oninput="validasi()" id="validasi" value="tenis_meja">
                         <label for="validasi">Setuju dan Lanjutkan</label>
                     </div>
-                    <a href="/"  name="setuju" class="btn btn-success w-100 d-none">Setuju dan lanjutkan</a>
+                    <a href="/home"  name="setuju" class="btn btn-success w-100 d-none">Setuju dan lanjutkan</a>
                     <button disabled name="setuju-disabled" class="btn btn-secondary w-100" disabled>Setuju dan lanjutkan</button>
                 </div>
             </div>
