@@ -2,12 +2,6 @@
 
 @section('content')
 
-@php
-if (isset($_COOKIE['visited'])) {
-    setcookie('visited', null, -1, '/');
-    unset($_COOKIE['visited']);
-} 
-@endphp
 
 <div class="container">
     <div class="row justify-content-center">

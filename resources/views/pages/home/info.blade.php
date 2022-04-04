@@ -1,9 +1,3 @@
-@php
-if (isset($_GET['visited'])) {
-    setcookie('visited', true,time() + (10 * 365 * 24 * 60 * 60));
-    header("Refresh:0; url=/");
-}
-@endphp
 
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -102,7 +96,7 @@ if (isset($_GET['visited'])) {
                         <input type="checkbox" oninput="validasi()" id="validasi" value="tenis_meja">
                         <label for="validasi">Setuju dan Lanjutkan</label>
                     </div>
-                    <a href='?visited=true' name="setuju" class="btn btn-success w-100 d-none">Setuju dan lanjutkan</a>
+                    <a href='/' name="setuju" class="btn btn-success w-100 d-none">Setuju dan lanjutkan</a>
                     <button disabled name="setuju-disabled" class="btn btn-secondary w-100" disabled>Setuju dan
                         lanjutkan</button>
                 </div>
