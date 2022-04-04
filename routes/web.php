@@ -21,7 +21,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::group(['middleware' => ['user']], function () {
-        Route::get('/', [HomeController::class, 'index'])->name('home');
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
     });
 
     Route::post('auction/bid', [AuctionController::class, 'bid'])->name('auction.bid');
