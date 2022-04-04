@@ -92,7 +92,7 @@
                         <input type="checkbox" oninput="validasi()" id="validasi" value="tenis_meja">
                         <label for="validasi">Setuju dan Lanjutkan</label>
                     </div>
-                    <button onclick="@php  setcookie("visited",true,time() + (10 * 365 * 24 * 60 * 60)); @endphp window.location = '/'"  name="setuju" class="btn btn-success w-100 d-none">Setuju dan lanjutkan</button>
+                    <a href="/"  name="setuju" class="btn btn-success w-100 d-none">Setuju dan lanjutkan</a>
                     <button disabled name="setuju-disabled" class="btn btn-secondary w-100" disabled>Setuju dan lanjutkan</button>
                 </div>
             </div>
@@ -107,10 +107,10 @@
             var validasi = $('input[id=validasi]:checked');
             if (validasi.length == 0) {
                 $("button[name=setuju-disabled]").removeClass('d-none');
-                $("button[name=setuju]").addClass('d-none');
+                $("a[name=setuju]").addClass('d-none');
             } else {
                 $("button[name=setuju-disabled]").addClass('d-none');
-                $("button[name=setuju]").removeClass('d-none');
+                $("a[name=setuju]").removeClass('d-none');
             }
         });
 

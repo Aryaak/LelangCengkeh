@@ -18,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/terms-and-conditions';
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/terms-and-conditions';
 
     /**
      * The controller namespace for the application.
