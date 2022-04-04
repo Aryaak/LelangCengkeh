@@ -8,9 +8,9 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/', function () {
-        return view('pages.home.info');
-    });
+    // Route::get('/', function () {
+    //     return view('pages.home.info');
+    // });
     Route::group(['middleware' => ['admin']], function () {
         Route::prefix('admin')->group(function () {
             Route::get('/', [DashboardController::class, 'index'])->name('admin');
@@ -21,7 +21,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::group(['middleware' => ['user']], function () {
-        Route::get('home', [HomeController::class, 'index'])->name('home');
+        Route::get('/', [HomeController::class, 'index'])->name('home');
     });
 
     Route::post('auction/bid', [AuctionController::class, 'bid'])->name('auction.bid');
