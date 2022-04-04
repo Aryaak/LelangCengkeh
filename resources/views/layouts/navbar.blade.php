@@ -15,7 +15,11 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item mt-3">
-            <a class="btn btn-danger w-100" aria-current="page"href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Keluar</a>
+            <form action="{{route('logout')}}" method="POST">
+              @csrf
+              <input type="hidden" name="email" value="{{Auth::user()->email}}">
+              <button class="btn btn-danger w-100" >Keluar</button>
+            </form>
           </li>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             {{ csrf_field() }}

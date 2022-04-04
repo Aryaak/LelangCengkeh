@@ -96,7 +96,11 @@
                         <input type="checkbox" oninput="validasi()" id="validasi" value="tenis_meja">
                         <label for="validasi">Setuju dan Lanjutkan</label>
                     </div>
-                    <a href='/' name="setuju" class="btn btn-success w-100 d-none">Setuju dan lanjutkan</a>
+                    <form action="{{route('user.visited')}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="email" value="{{Auth::user()->email}}">
+                        <button type="submit" name="setuju" class="btn btn-success w-100 d-none">Setuju dan lanjutkan</button>
+                    </form>
                     <button disabled name="setuju-disabled" class="btn btn-secondary w-100" disabled>Setuju dan
                         lanjutkan</button>
                 </div>
@@ -111,10 +115,10 @@
             var validasi = $('input[id=validasi]:checked');
             if (validasi.length == 0) {
                 $("button[name=setuju-disabled]").removeClass('d-none');
-                $("a[name=setuju]").addClass('d-none');
+                $("button[name=setuju]").addClass('d-none');
             } else {
                 $("button[name=setuju-disabled]").addClass('d-none');
-                $("a[name=setuju]").removeClass('d-none');
+                $("button[name=setuju]").removeClass('d-none');
             }
         });
 

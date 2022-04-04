@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NonVisited
 {
@@ -16,7 +17,7 @@ class NonVisited
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!isset($_COOKIE['visited'])) {
+        if (Auth::user()->is_visited == false) {
             return $next($request);
         }
 
