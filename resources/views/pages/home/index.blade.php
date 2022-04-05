@@ -19,7 +19,8 @@
         @forelse ($data as $item)
         <div class="col-md-3 3 d-flex justify-content-center mb-3">
             <div class="card shadow p-3 bg-body rounded" style="width: 20rem">
-                <img height="200" src="{{ asset($item->photo) }}" class="card-img-top">
+                <img height="200" src="http://lelangcengkeh548.herokuapp.com/{{$item->photo}}" class="card-img-top">
+                {{-- <img height="200" src="{{ asset($item->photo) }}" class="card-img-top"> --}}
                 <div class="card-body">
                     <h5 class="card-title">{{ $item->title }}</h5>
                     <p class="card-text">
@@ -116,7 +117,7 @@
 
                 <div>
                     <div class="mb-3">
-                        <input type="checkbox" oninput="validasi()" id="validasi" value="tenis_meja">
+                        <input type="checkbox"  id="validasi" value="tenis_meja">
                         <label for="validasi">Setuju dan Lanjutkan</label>
                     </div>
                     <button type="button" data-bs-dismiss="modal" onclick="accept()" name="setuju" class="btn btn-success w-100 d-none">Setuju dan
