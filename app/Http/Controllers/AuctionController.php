@@ -49,6 +49,15 @@ class AuctionController extends Controller
             ->first();
         $data['is_bid'] = AuctionBid::where('user_id', Auth::user()->id)
             ->where('auction_id', $data->id)->first() ? true : false;
+
+        $data['max_price'] = AuctionBid::where('auction_id', $data->id)
+            ->orderBy('bid', 'DESC')
+            ->first()['bid'];
+
+        $data['max_price'] = $data['max_price'] ? $data['max_price'] : $data->start_price;
+        $data['max_price'] = (int)$data['max_price'];
+        $data['max_price'] += 100;
+
         return view('pages.auction.show', compact('data'));
     }
 

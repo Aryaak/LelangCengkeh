@@ -102,13 +102,14 @@
         </section>
         @if (date('Y-m-d\Th:i', strtotime('now')) > $data->start_at)
         @if ($data->is_joined && !$data->is_ended)
+        <div class="badge badge-danger">Hello</div>
         <form action="{{ route('auction.bid') }}" method="POST" class="mt-3 bg-white shadow bg-body rounded p-3">
             @csrf
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             <input type="hidden" name="auction_id" value="{{ $data->id }}">
             <div class="form-group">
                 <label for="bid" class="mb-2 fw-bold">Harga penawaran</label>
-                <input min="{{ $data->start_price }}" class="form-control mb-2 p-2" type="number" name="bid"
+                <input min="{{ $data->max_price }}" class="form-control mb-2 p-2" type="number" name="bid"
                     placeholder="Masukan harga penawaran anda...">
             </div>
             <button type="submit" class="btn btn-primary w-100">Kirim</button>
