@@ -50,7 +50,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright by</strong>
+            <strong>Copyright 2022 by - Mahatir Muhammad</strong>
         </footer>
 
         <!-- Control Sidebar -->
