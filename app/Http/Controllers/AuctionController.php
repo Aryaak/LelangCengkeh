@@ -84,7 +84,6 @@ class AuctionController extends Controller
 
     public function store(Request $request)
     {
-
         $data = $this->validate($request, [
             'photo' => 'required',
             'title' => 'required',
