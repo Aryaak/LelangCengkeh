@@ -18,15 +18,14 @@
             <tr class="border-bottom">
                 <td>Dimulai Pada</td>
                 {{-- <td>:</td> --}}
-                <td class="text-secondary">{{ $data->start_at }} </td>
+                <td class="text-secondary">{{ date('Y-m-d h:i', strtotime($data->start_at)) }} </td>
             </tr>
             <tr class="border-bottom">
                 <td>Berakhir pada</td>
                 {{-- <td>:</td> --}}
-                <td class="text-secondary">{{ $data->end_at }} </td>
+                <td class="text-secondary">{{  date('Y-m-d h:i', strtotime($data->end_at)) }} </td>
             </tr>
         </table>
-
         @if (!$data->is_ended)
         @if (!$data->is_joined)
         <form action="{{ route('auction.join') }}" method="POST">
@@ -35,12 +34,13 @@
             <input type="hidden" name="auction_id" value="{{ $data->id }}">
             <button class="btn btn-success w-100">Gabung lelang</button>
         </form>
-        @else
-        <button data-bs-toggle="modal" data-bs-target="#leaveModal" class="btn btn-danger w-100">Keluar
-            lelang</button>
         @endif
         @endif
 
+        @if (($data->is_joined && !$data->is_bid) || $data->is_ended)
+        <button data-bs-toggle="modal" data-bs-target="#leaveModal" class="btn btn-danger w-100">Keluar
+            lelang</button>
+        @endif
         <!-- Leave Modal -->
         <div class="modal fade" id="leaveModal" tabindex="-1" aria-labelledby="leaveModalLabel" aria-hidden="true">
             <form action="{{ route('auction.leave') }}" method="POST">
@@ -100,7 +100,7 @@
             <p>Belum ada penawaran</p>
             @endforelse
         </section>
-        @if (\Carbon\Carbon::now() > $data->start_at)
+        @if (date('Y-m-d\Th:i', strtotime('now')) > $data->start_at)
         @if ($data->is_joined && !$data->is_ended)
         <form action="{{ route('auction.bid') }}" method="POST" class="mt-3 bg-white shadow bg-body rounded p-3">
             @csrf

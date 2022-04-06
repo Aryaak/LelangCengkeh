@@ -79,5 +79,9 @@
             @yield('content')
         </main>
     </div>
+
+    <script>
+        localStorage.removeItem('visited')
+    </script>
 </body>
 </html>
