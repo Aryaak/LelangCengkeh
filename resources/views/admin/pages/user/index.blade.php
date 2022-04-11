@@ -25,6 +25,7 @@
                     <th scope="col">No HP</th>
                     <th scope="col">Alamat</th>
                     <th scope="col">Bergabung pada</th>
+                    <th scope="col" colspan="2">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,7 +37,99 @@
                     <td>{{$item->phone}}</td>
                     <td>{{$item->address}}</td>
                     <td>{{$item->created_at}}</td>
+                    <td>
+                        <button data-bs-toggle="modal" data-bs-target="#editModal{{$item->id}}" class="btn btn-warning">Edit</button>
+                    </td>
+                    <   <td>
+                        <button data-bs-toggle="modal" data-bs-target="#destroyModal{{$item->id}}"
+                        class="btn btn-danger">Hapus</button>
+                    </td>
                 </tr>
+
+                   <!-- Edit Modal -->
+                    <div class="modal fade" id="editModal{{$item->id}}" tabindex="-1" aria-labelledby="editModalLabel"
+                        aria-hidden="true">
+                        <form action="{{route('user.update', $item->id)}}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <div class="modal-dialog  modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editModalLabel">Edit pengguna</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="title">Nama</label>
+                                            @error('name')
+                                            <span>{{$message}}</span>
+                                            @enderror
+                                            <input required class="form-control" type="text" id="name" name="name"
+                                                placeholder="Masukan nama pengguna..." value="{{$item->name}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">email</label>
+                                            @error('email')
+                                            <span>{{$message}}</span>
+                                            @enderror
+                                            <input required class="form-control" type="email" id="email" name="email"
+                                                placeholder="Masukan email pengguna..." value="{{$item->email}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">No HP</label>
+                                            @error('phone')
+                                            <span>{{$message}}</span>
+                                            @enderror
+                                            <input required class="form-control" type="text" id="phone" name="phone"
+                                                placeholder="Masukan judul pengguna..." value="{{$item->phone}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address">Alamat</label>
+                                            @error('address')
+                                            <span>{{$message}}</span>
+                                            @enderror
+                                            <textarea required class="form-control" name="address" id="address"
+                                                cols="30" rows="10"
+                                                placeholder="Masukan alamat pengguna...">{{$item->address}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Batal</button>
+                                        <button type="submit" class="btn btn-success">Simpan</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Destroy Modal -->
+                    <div class="modal fade" id="destroyModal{{$item->id}}" tabindex="-1" aria-labelledby="destroyModalLabel"
+                        aria-hidden="true">
+                        <form action="{{route('user.destroy', $item->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <div class="modal-dialog  modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="destroyModalLabel">Hapus pengguna</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Apakah anda yakin ingin menghapus pengguna?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Batal</button>
+                                        <button type="submit" class="btn btn-success">Hapus</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 @empty
                 <tr>
                     <td colspan="5" class="text-center">Tidak ada data</td>

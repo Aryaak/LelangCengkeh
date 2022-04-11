@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuctionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserControlller;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth']], function () {
@@ -14,7 +15,8 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/', [DashboardController::class, 'index'])->name('admin');
             Route::get('auction', [DashboardController::class, 'auction'])->name('admin.auction');
             Route::get('auction/{id}', [AuctionController::class, 'adminShow'])->name('admin.auction.show');
-            Route::get('user', [DashboardController::class, 'user'])->name('admin.user');
+            Route::get('admin/user', [DashboardController::class, 'user'])->name('admin.user');
+            Route::resource('user', UserControlller::class);
         });
     });
 
