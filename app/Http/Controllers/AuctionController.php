@@ -52,9 +52,9 @@ class AuctionController extends Controller
 
         $data['max_price'] = AuctionBid::where('auction_id', $data->id)
             ->orderBy('bid', 'DESC')
-            ->first()['bid'];
+            ->first();
 
-        $data['max_price'] = $data['max_price'] ? $data['max_price'] : $data->start_price;
+        $data['max_price'] = $data['max_price'] ? $data['max_price']['bid'] : $data->start_price;
         $data['max_price'] = (int)$data['max_price'];
         $data['max_price'] += 100;
 
@@ -126,7 +126,7 @@ class AuctionController extends Controller
 
         $data['user_id'] = Auth::user()->id;
         if ($request->file('photo')) {
-            $data['photo'] = $request->file('photo')->store('auction');
+            $data['photo'] = $request->file('photo')->b('auction');
         }
         Auction::where('id', $id)->update($data);
         return redirect()->back()->with(['success' => 'Berhasil memperbarui lelang']);
