@@ -25,4 +25,10 @@ class DashboardController extends Controller
         $data = User::latest()->get();
         return view('admin.pages.user.index', compact('data'));
     }
+
+    public function winner()
+    {
+        $data  = Auction::where('winner_id', '!=', null)->get();
+        return view('admin.pages.winner.index', compact('data'));
+    }
 }

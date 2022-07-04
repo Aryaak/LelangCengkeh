@@ -17,6 +17,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('auction/{id}', [AuctionController::class, 'adminShow'])->name('admin.auction.show');
             Route::get('admin/user', [DashboardController::class, 'user'])->name('admin.user');
             Route::resource('user', UserControlller::class);
+            Route::get('admin/winner', [DashboardController::class, 'winner'])->name('admin.winner');
         });
     });
 

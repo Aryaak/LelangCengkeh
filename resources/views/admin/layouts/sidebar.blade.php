@@ -44,6 +44,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.winner') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Pemenang Lelang
+                        </p>
+                    </a>
+                </li>
                 {{-- <li class="nav-item">
                     <i class="nav-link fas fa-sign-out-alt"></i>
                     <a aria-current="page" href="{{ route('logout') }}"

@@ -26,10 +26,10 @@ class UsersTableSeeder extends Seeder
 
         User::create([
             'id' => 2,
-            'name' =>  'Arya Rizky',
+            'name' =>  'Mahatir Muhammad',
             'phone' =>  '085707656364',
             'address' =>  'Jl. Babatan No.18, Babatan, Wiyung, Kota SBY, Jawa Timur 60227',
-            'email' => 'aryarizky2303@gmail.com',
+            'email' => 'mahatirmuhammad@gmail.com',
             'password' => bcrypt('password123')
         ]);
     }
